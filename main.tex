@@ -1,0 +1,208 @@
+\documentclass[11pt]{article} 
+
+%%--------------------------------------------------------------------------%%
+%% PAKETIT
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{a4wide}
+\usepackage{amsfonts}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[finnish]{babel}
+\usepackage{anyfontsize}
+\usepackage{fontspec}
+\setmainfont{Arial}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{comment}
+\usepackage{ragged2e}
+\usepackage{parskip}
+\usepackage{etoolbox}
+\usepackage{datatool}
+\usepackage[toc]{appendix}
+\usepackage{tocloft}
+\usepackage{hyperref}
+\usepackage{chemformula}
+\usepackage{csquotes}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{pythontex} 
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\usepackage[backend=biber, style=ieee,citestyle=numeric-comp, dashed=false]{biblatex}
+\DeclareBibliographyDriver{book}{
+  \printnames{author}%
+  \newunit\newblock
+  \printfield{title}%
+  \newunit\newblock
+  \printfield{edition}%
+  \newunit
+  \printlist{publisher}%
+  \newunit
+  \printlist{location}%  
+  \,
+  \printfield{year}%
+  \newunit
+  \printfield{pagetotal}
+  \finentry}
+\addbibresource{viittaus.bib}
+
+\usepackage{listings}
+\usepackage{color}
+\usepackage{libertine} 
+\usepackage{siunitx}
+\DeclareSIUnit\px{px}
+\usepackage{float}
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+%\newcommand{\cftchapterdotsep}{\cftnodots}
+\usepackage{url}
+\urlstyle{rm}
+%%--------------------------------------------------------------------------%%
+
+\titleformat*{\section}{\fontsize{14}{15}\selectfont}
+\titleformat*{\subsection}{\fontsize{12}{15}\selectfont}
+
+
+\titlespacing*{\section}
+{0pt}{36pt}{24pt}
+\titlespacing*{\subsection}
+{0pt}{24pt}{12pt}
+
+%\titleformat{\section}{\setlength{\abovedisplayskip}{36pt}
+%TÄRKEÄ
+ \geometry{
+ a4paper,
+ total={210mm, 297mm},
+ left=35mm,
+ top=30mm,
+ right=30mm,
+ bottom=30mm
+ } %TÄRKEÄ
+
+%\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+%%--------------------------------------------------------------------------%%
+%% OTSIKKOSIVU
+
+\begin{document}
+\begin{titlepage}
+\begin{figure}[t]
+    \includegraphics[scale=1.2]{Kuvat/Kemiantekniikan korkeakoulu.png}
+    \vspace*{1cm}
+    \begin{flushleft}
+    {\fontsize{11}{10}\selectfont Kurssin nimi}
+    \end{flushleft}
+\end{figure}
+
+
+\vspace*{4cm}
+
+\begin{center}
+\fontsize{16}{15}
+\textbf{Otsikko}
+\end{center}
+
+\vfill
+\hfill\begin{minipage}{0.4\linewidth}
+{\fontsize{11}{10}\selectfont
+Nimi, opiskelijanumero \\
+\newline
+Työ suoritettu \hfill XX.XX20XX\\
+Selostus jätetty \hfill XX.XX20XX \\
+Palautettu korjattuna \hfill XX.XX20XX}
+\end{minipage}
+
+
+\date{}
+
+\end{titlepage}
+
+%%--------------------------------------------------------------------------%%
+
+\pagenumbering{gobble}
+\onehalfspacing
+%\clearpage
+{\let\bfseries\mdseries% ...or \let\bfseries\relax
+\renewcommand*\contentsname{Sisällysluettelo}
+\tableofcontents}
+{\fontsize{11}{10}\selectfont
+\onehalfspacing
+\justifying
+
+%%--------------------------------------------------------------------------%%
+%% JOHDANTO
+
+\newpage
+\pagenumbering{arabic}
+\section{Johdanto}
+\input{Tekstit/johdanto}
+
+%%--------------------------------------------------------------------------%%
+%% TYÖNKUVAUS
+
+\newpage
+\section{Työn kuvaus}
+\input{Tekstit/työnkuvaus}
+\clearpage
+
+%%--------------------------------------------------------------------------%%
+%% TULOKSET
+
+\newpage
+\section{Tulokset}
+\input{Tekstit/tulokset}
+\clearpage
+
+%%--------------------------------------------------------------------------%%
+%% JOHTOPÄÄTÖKSET
+
+\newpage
+\section{Tulosten tarkastelu ja johtopäätökset}
+\input{Tekstit/tulostentarkastelu1}
+
+
+
+%%--------------------------------------------------------------------------%%
+%% LÄHDELUETTELO
+
+\newpage
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{Lähdeluettelo}
+\renewcommand*\refname{Lähdeluettelo}
+
+\printbibliography
+}
+
+
+%%--------------------------------------------------------------------------%%
+%% LIITTEET
+
+\newpage
+\addtocontents{toc}{\vspace{4em}}
+\phantomsection
+%\addtocontents{toc}{Liitteet}
+\cftaddtitleline{toc}{chapter}{Liitteet}{} 
+
+\phantomsection
+\cftaddtitleline{toc}{chapter}{Liite 1. X}{}
+
+\input{Tekstit/liite1}
+\newpage
+
+
+%%--------------------------------------------------------------------------%%
+\end{document}
