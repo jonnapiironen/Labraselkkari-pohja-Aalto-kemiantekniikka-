@@ -11,7 +11,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{graphicx}
-\usepackage[finnish]{babel}
+\usepackage[english]{babel} % Edit here the language, use finnish for reports written in finnish
 \usepackage{anyfontsize}
 \usepackage{fontspec}
 \setmainfont{Arial}
@@ -56,7 +56,7 @@
   \newunit
   \printfield{pagetotal}
   \finentry}
-\addbibresource{viittaus.bib}
+\addbibresource{references.bib}
 
 \usepackage{listings}
 \usepackage{color}
@@ -100,10 +100,10 @@
 \begin{document}
 \begin{titlepage}
 \begin{figure}[t]
-    \includegraphics[scale=1.2]{Kuvat/Kemiantekniikan korkeakoulu.png}
+    \includegraphics[scale=1.2]{photos/School_of_Chemical_Engineering.png} % Change the photo to Kemian_tekniikan_korkeakoulu if you are writing the report in finnish
     \vspace*{1cm}
     \begin{flushleft}
-    {\fontsize{11}{10}\selectfont Kurssin nimi}
+    {\fontsize{11}{10}\selectfont COURSE NAME} % Edit the course name here
     \end{flushleft}
 \end{figure}
 
@@ -112,17 +112,20 @@
 
 \begin{center}
 \fontsize{16}{15}
-\textbf{Otsikko}
+\textbf{TITLE HERE} % Edit the title here
 \end{center}
 
 \vfill
 \hfill\begin{minipage}{0.4\linewidth}
 {\fontsize{11}{10}\selectfont
-Nimi, opiskelijanumero \\
+NAME, STUDENT NUMBER \\
 \newline
-Työ suoritettu \hfill XX.XX20XX\\
-Selostus jätetty \hfill XX.XX20XX \\
-Palautettu korjattuna \hfill XX.XX20XX}
+Date performed %Työ suoritettu 
+\hfill XX.XX20XX\\
+Report submitted %Selostus jätetty 
+\hfill XX.XX20XX \\
+%Palautettu korjattuna \hfill XX.XX20XX
+} % From here, choose the needed parts and edit your information
 \end{minipage}
 
 
@@ -136,71 +139,98 @@ Palautettu korjattuna \hfill XX.XX20XX}
 \onehalfspacing
 %\clearpage
 {\let\bfseries\mdseries% ...or \let\bfseries\relax
-\renewcommand*\contentsname{Sisällysluettelo}
+\renewcommand*\contentsname{
+Contents
+%Sisällysluettelo
+}
 \tableofcontents}
 {\fontsize{11}{10}\selectfont
 \onehalfspacing
 \justifying
 
 %%--------------------------------------------------------------------------%%
-%% JOHDANTO
+%% INTRODUCTION
 
 \newpage
 \pagenumbering{arabic}
-\section{Johdanto}
-\input{Tekstit/johdanto}
+\section{
+Introduction
+%Johdanto
+}
+\input{text/introduction}
 
 %%--------------------------------------------------------------------------%%
-%% TYÖNKUVAUS
+%% METHODS
 
 \newpage
-\section{Työn kuvaus}
-\input{Tekstit/työnkuvaus}
+\section{
+Methods
+%Työn kuvaus
+}
+\input{text/methods}
 \clearpage
 
 %%--------------------------------------------------------------------------%%
-%% TULOKSET
+%% RESULTS
 
 \newpage
-\section{Tulokset}
-\input{Tekstit/tulokset}
+\section{
+Results
+%Tulokset
+}
+\input{text/results}
 \clearpage
 
 %%--------------------------------------------------------------------------%%
-%% JOHTOPÄÄTÖKSET
+%% EVALUATION OF RESULTS
 
 \newpage
-\section{Tulosten tarkastelu ja johtopäätökset}
-\input{Tekstit/tulostentarkastelu1}
+\section{
+Evaluation of results
+%Tulosten tarkastelu ja johtopäätökset
+}
+\input{text/evaluation_of_results}
 
 
 
 %%--------------------------------------------------------------------------%%
-%% LÄHDELUETTELO
+%% REFERENCES
 
 \newpage
 \clearpage
 \phantomsection
-\addcontentsline{toc}{section}{Lähdeluettelo}
-\renewcommand*\refname{Lähdeluettelo}
+\addcontentsline{toc}{section}{
+References
+%Lähdeluettelo
+}
+\renewcommand*\refname{
+References
+%Lähdeluettelo
+}
 
 \printbibliography
 }
 
 
 %%--------------------------------------------------------------------------%%
-%% LIITTEET
+%% APPENDICES
 
 \newpage
 \addtocontents{toc}{\vspace{4em}}
 \phantomsection
 %\addtocontents{toc}{Liitteet}
-\cftaddtitleline{toc}{chapter}{Liitteet}{} 
+\cftaddtitleline{toc}{chapter}{
+Appendices
+%Liitteet
+}{} 
 
 \phantomsection
-\cftaddtitleline{toc}{chapter}{Liite 1. X}{}
+\cftaddtitleline{toc}{chapter}{
+Appendix 1. X
+%Liite 1. X
+}{}
 
-\input{Tekstit/liite1}
+\input{text/appendix}
 \newpage
 
 
